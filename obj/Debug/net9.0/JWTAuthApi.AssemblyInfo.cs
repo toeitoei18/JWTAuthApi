@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JWTAuthApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6691ebbe3368c80b5f8c0f66285fdaa106ce4a05")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+832169890fe3ffdd66b0125ad95be39e96a20607")]
 [assembly: System.Reflection.AssemblyProductAttribute("JWTAuthApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JWTAuthApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
