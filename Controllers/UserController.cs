@@ -14,6 +14,7 @@ namespace JWTAuthApi.Controllers
             _userService = userService; 
         }
 
+        // post method
         [HttpPost("register")]
 
         public async Task<IActionResult> UserRegistration(UserRegistrationDto userRegistration)
