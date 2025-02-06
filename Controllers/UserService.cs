@@ -39,7 +39,13 @@ namespace JWTAuthApi.Controllers
                 rng.GetBytes(salt);
             }
 
-            var new Rfc2898DeriveBytes(plainPassword, salt, 1000, HashAlgorithmName.SHA1);
+            var rfcPassord = new Rfc2898DeriveBytes(plainPassword, salt, 1000, HashAlgorithmName.SHA1);
+            byte[] rfcPasswprdHash = rfcPassord.GetBytes(20);
+            byte[] passwordHash = new byte[36];
+            Array.Copy(salt, 0,passwordHash, 0, 16);
+            Array.Copy(rfcPasswprdHash, 0, passwordHash, 16, 20);
+
+            return Convert.ToBase64String(passwordHash);
         }
         public async Task<(bool IsUserRegistered, string Message)> RegisterNewUserAsync(UserRegistrationDto userRegistration)
         {
@@ -51,6 +57,11 @@ namespace JWTAuthApi.Controllers
             }
 
             var newUser = FromUserRegistrationModelToUserMode(userRegistration);
+            newUser.Password = HashPassword(newUser.Password);
+
+            _DbContext.Users.Add(newUser);
+            await _DbContext.SaveChangesAsync();
+            return (true, "Success");
         }
     }
 }
